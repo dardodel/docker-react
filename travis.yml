@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before-install:
+ - docker build -t dardodel/docker-react -f Dockerfile.dev .
+
+script:
+ - docker run dardodel/docker-react nom run test -- -- coverage
